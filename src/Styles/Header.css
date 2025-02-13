@@ -1,0 +1,40 @@
+/* LARGE SCREEN SIZE */
+.logo img {
+    height: 150px;
+    width: 150px;
+}
+.logo a{
+    display: flex;
+}
+.logo{
+    width: 90%;
+}
+
+/* MOBILE RSPONSIVENESS */
+@media all and (max-width: 800px) {
+    .logo img {
+        width: 250px;
+        height: 20vh;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+@media (min-width:800px) and (max-width:1080px){
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width:1080px) and (max-width:1500px){
+    .logo {
+        display: flex;
+    }
+}
