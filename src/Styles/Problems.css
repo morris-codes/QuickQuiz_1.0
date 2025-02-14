@@ -101,6 +101,35 @@ div.selected {
     width: 0px;
   }
 
+  /* >>>>>>>> */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.page-button {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.page-button.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.page-button:hover {
+    background-color: #ddd;
+}
+
+/* >>>>>>>>>>>>>>>>>*/
+
 /* SCREEN SIZE RESPONSIVENESS */
 @media all and (max-width: 800px) {
     .solution {

@@ -1,5 +1,5 @@
 export const data = [
-    {
+    {id: 1,
         question: "What does HTML stand for?",
         option1: "Hypertext Markup Language",
         option2: "Hypertext Markdown Language",
@@ -8,6 +8,7 @@ export const data = [
         answer: 1
     },
     {
+        id: 2,
         question: "Which tag is used to define the largest heading in HTML?",
         option1: " <h1>",
         option2: "<heading>",
@@ -16,6 +17,7 @@ export const data = [
         answer: 1
     },
     {
+        id: 3,
         question: "Which attribute is used to specify the URL of a hyperlink?",
         option1: "href",
         option2: "src",
@@ -24,6 +26,7 @@ export const data = [
         answer: 1
     },
     {
+        id: 4,
         question: "What is the correct way to add a comment in HTML?",
         option1: "<!-- Comment -->",
         option2: "// Comment",
@@ -32,6 +35,7 @@ export const data = [
         answer: 1
     },
     {
+        id: 5,
         question: "Which tag is used to embed an image in HTML?",
         option1: "<img>",
         option2: "<image>",
@@ -40,6 +44,7 @@ export const data = [
         answer: 1
     },
     {
+        id: 6,
         question: "What does CSS stand for?",
         option1: "Cascading Style Sheets",
         option2: "Creative Style System",
@@ -48,6 +53,7 @@ export const data = [
         answer: 1
     },
     {
+        id: 7,
         question: "Which property is used to change the background color of an element?",
         option1: "color",
         option2: "background-color",
@@ -56,6 +62,7 @@ export const data = [
         answer: 2
     },
     {
+        id: 8,
         question: "Which CSS selector targets all elements on a page?",
         option1: "*",
         option2: "#all",
@@ -64,6 +71,7 @@ export const data = [
         answer: 1
     },
     {
+        id: 9,
         question: "How do you apply a class to an HTML element in CSS?",
         option1: ".classname",
         option2: "#classname",
@@ -72,6 +80,7 @@ export const data = [
         answer: 1
     },
     {
+        id: 10,
         question: "Which property controls the size of text?",
         option1: "font-weight",
         option2: "font-style",
@@ -80,6 +89,7 @@ export const data = [
         answer: 3
     },
     {
+        id: 11,
         question: "Which keyword is used to declare a variable in JavaScript?",
         option1: "let",
         option2: "var",
@@ -88,6 +98,7 @@ export const data = [
         answer: 4
     },
     {
+        id: 12,
         question: "What is the output of `console.log(typeof null)`?",
         option1: "null",
         option2: "object",
@@ -96,6 +107,7 @@ export const data = [
         answer: 2
     },
     {
+        id: 13,
         question: "Which method is used to select an element by its ID in JavaScript?",
         option1: "getElementById()",
         option2: "querySelector()",
@@ -104,6 +116,7 @@ export const data = [
         answer: 1
     },
     {
+        id: 14,
         question: "What does the `===` operator do in JavaScript?",
         option1: "Assigns a value",
         option2: "Compares values and types",
@@ -112,6 +125,7 @@ export const data = [
         answer: 2
     },
     {
+        id: 15,
         question: "Which function is used to parse a string into a number in JavaScript?",
         option1: "parseInt()",
         option2: "toNumber()",
@@ -120,6 +134,7 @@ export const data = [
         answer: 4
     },
     {
+        id: 16,
         question: "What is React?",
         option1: "A backend framework",
         option2: "A frontend library for building user interfaces",
@@ -128,6 +143,7 @@ export const data = [
         answer: 2
     },
     {
+        id: 17,
         question: "Which method is used to create a React component?",
         option1: "React.createElement()",
         option2: "React.render()",
@@ -136,6 +152,7 @@ export const data = [
         answer: 1
     },
     {
+        id: 18,
         question: "What is JSX in React?",
         option1: "A JavaScript library",
         option2: "A CSS framework",
@@ -144,6 +161,7 @@ export const data = [
         answer: 3
     },
     {
+        id: 19,
         question: "Which hook is used to handle state in a functional React component?",
         option1: "useState",
         option2: "useEffect",
@@ -152,6 +170,7 @@ export const data = [
         answer: 1
     },
     {
+        id: 20,
         question: "How do you pass data from a parent component to a child component in React?",
         option1: "Using props",
         option2: "Using state",
