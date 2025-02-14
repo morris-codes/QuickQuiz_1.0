@@ -1,28 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { data } from '../assets/data';
+import { data } from '../assets/data';  // 100 questions
 import Header from './Header';
 import '../Styles/Problems.css';
 
 const Problems = ({ giveData }) => {
+  const totalTime = 300;
+  const navigate = useNavigate();
+
+  const [questions, setQuestions] = useState([]);
   const [index, setIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [question, setQuestion] = useState(data[index]);
-  const totalTime = 300;
   const [timer, setTimer] = useState(totalTime);
-
-  const navigate = useNavigate();
   const [allAnswers, setAllAnswers] = useState([]);
 
+  // Randomize questions and set the first 20
   useEffect(() => {
-    setQuestion(data[index]);
-  }, [index]);
-
-  // Fetch correct answers
-  useEffect(() => {
-    let temp = data.map((dat) => dat.answer);
-    setAllAnswers(temp);
+    const shuffledQuestions = shuffleQuestions(data);
+    setQuestions(shuffledQuestions.slice(0, 20)); // Only take the first 20 questions
   }, []);
+
+  // Randomize the data array
+  const shuffleQuestions = (questions) => {
+    return questions
+      .map((question) => ({ question, rand: Math.random() })) // Add a random value for shuffling
+      .sort((a, b) => a.rand - b.rand) // Sort based on the random value
+      .map(({ question }) => question); // Return shuffled questions
+  };
 
   // Timer logic
   useEffect(() => {
@@ -36,6 +40,7 @@ const Problems = ({ giveData }) => {
     }
   }, [timer]);
 
+  // Handle option selection
   const optionClick = (option) => {
     const retainOption = [...selectedOptions];
     retainOption[index] = option;
@@ -43,7 +48,7 @@ const Problems = ({ giveData }) => {
   };
 
   const nextButton = () => {
-    if (index < data.length - 1) {
+    if (index < 19) {  // Only allow next until the 19th question
       setIndex(index + 1);
     }
   };
@@ -60,8 +65,8 @@ const Problems = ({ giveData }) => {
 
   const handleSubmit = () => {
     let score = 0;
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].answer === selectedOptions[i]) {
+    for (let i = 0; i < questions.length; i++) {
+      if (questions[i].answer === selectedOptions[i]) {
         score++;
       }
     }
@@ -72,8 +77,8 @@ const Problems = ({ giveData }) => {
 
   const submitButton = () => {
     let finalScore = 0;
-    for (let i = 0; i < data.length; i++) {
-      if (allAnswers[i] === selectedOptions[i]) {
+    for (let i = 0; i < questions.length; i++) {
+      if (questions[i].answer === selectedOptions[i]) {
         finalScore++;
       }
     }
@@ -101,7 +106,7 @@ const Problems = ({ giveData }) => {
       {/* QUESTION */}
       <div className="question-1">
         <div className="que-1">
-          <h6>{question.question}</h6>
+          <h6>{questions[index]?.question}</h6>
         </div>
 
         {/* OPTIONS */}
@@ -109,8 +114,7 @@ const Problems = ({ giveData }) => {
           {[1, 2, 3, 4].map((opt) => (
             <div
               key={opt}
-              className={`option-1 ${selectedOptions[index] === opt ? 'selected' : ''
-                }`}
+              className={`option-1 ${selectedOptions[index] === opt ? 'selected' : ''}`}
               onClick={() => optionClick(opt)}
             >
               <div className="option-items">
@@ -119,7 +123,7 @@ const Problems = ({ giveData }) => {
                   src={`/${['A', 'B', 'C', 'D'][opt - 1]}.jpg`}
                   alt={`Option ${opt}`}
                 />
-                <p>{question[`option${opt}`]}</p>
+                <p>{questions[index]?.[`option${opt}`]}</p>
               </div>
             </div>
           ))}
@@ -135,7 +139,7 @@ const Problems = ({ giveData }) => {
         >
           Previous
         </button>
-        {index === data.length - 1 ? (
+        {index === 19 ? (
           <button className="submit-button" onClick={handleSubmit}>
             Submit
           </button>
@@ -148,7 +152,7 @@ const Problems = ({ giveData }) => {
 
       {/* PAGINATION */}
       <div className="pagination">
-        {data.map((_, i) => (
+        {questions.map((_, i) => (
           <button
             key={i}
             className={`page-button ${i === index ? 'active' : ''}`}
