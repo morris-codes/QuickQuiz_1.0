@@ -1,0 +1,16 @@
+
+  {
+    "version": 2,
+    "rewrites": [
+      {
+        "source": "/problems",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/results",
+        "destination": "/index.html"
+      }
+    ]
+  }
+  
+  
